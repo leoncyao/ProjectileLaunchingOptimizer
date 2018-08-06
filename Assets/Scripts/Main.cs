@@ -73,6 +73,18 @@ public class Main : EvolutionaryAlgorithm{
         }
     }
 
+    public override void Update()
+    {
+        base.Update();
+        // For indivdual Tests
+        if (finishedTest)
+        {
+            finishedTest = false;
+            cleanUpTest();
+            startNewTest();
+        }
+    }
+
     //public override void Update () {
     //    if (Block.results1.Count == numItems)
     //    {            
@@ -110,34 +122,21 @@ public class Main : EvolutionaryAlgorithm{
     //        //temp.transform.position = startPos;
     //        //temp.AddComponent<Rigidbody>();
     //        //temp.GetComponent<Rigidbody>().velocity = new Vector2(10 * Mathf.Cos(Mathf.PI/4), 10 * Mathf.Sin(Mathf.PI / 4)); new Vector2();
-            
+
     //    }
 
     //}
-    public static List<float> makeChildren(List<float> parents)
-    {
-        List<float> children = new List<float>();
-        for(int i = 0; i < parents.Count; i++)
-        {
-            for (int j = i+1; j < parents.Count; j++)
-            {
-                children.Add((parents[i] + parents[j]) / 2);
-            }
-        }
-        return children;
-    }
     protected override void cleanUpTrial()
     {
     }
 
     protected override void cleanUpTest()
     {
-        throw new System.NotImplementedException();
     }
 
     protected override void startNewTest()
     {
-        throw new System.NotImplementedException();
+
     }
 
     protected override void startNewTrial()
